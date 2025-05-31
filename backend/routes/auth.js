@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const User = require('../models/User');
 // This route is for creating a new user at api/auth/createUser
@@ -18,10 +19,13 @@ router.post('/createUser', [
     if (user) {
         return res.status(400).json({ error: 'User with this email already exists' });
     }
+    // Hash the password before saving
+    const salt = await bcrypt.genSalt(10);
+    const hashpassword = await bcrypt.hash(req.body.password, salt);
     user = await User.create({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password
+        password: hashpassword
     });
     res.status(201).json({ message: 'User created successfully', user });
 });
