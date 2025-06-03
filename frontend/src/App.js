@@ -1,11 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+import NotesState from './context/notes/notesState';
+import Alert from './components/Alert';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import React, { useState } from 'react';
 
 function App() {
+  const [alert, setAlert] = useState(null);
+
+    const showAlert = (message, type) => {
+        setAlert({ message, type });
+        setTimeout(() => setAlert(null), 2000); // Hide after 2 seconds
+    };
   return (
-    <div className="App">
-      <h1>Welcome to My React App</h1>
-    </div>
+    <NotesState>
+      <Router>
+      <Navbar />
+      <Alert alert={alert}/>
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home showAlert={showAlert}/>} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login showAlert={showAlert}/>} />
+          <Route path="/signup" element={<Signup showAlert={showAlert}/>} />
+        </Routes>
+      </div>
+    </Router>
+    </NotesState>
+    
   );
 }
 

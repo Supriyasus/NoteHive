@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import NotesState from './context/notes/notesState';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <NotesState>   {/* Correct spelling here */}
     <App />
-  </React.StrictMode>
+  </NotesState>
 );
 
 // If you want to start measuring performance in your app, pass a function
