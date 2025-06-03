@@ -29,7 +29,7 @@ const Signup = (props) => {
         });
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('token', data.authToken); // <-- Save token here
+            localStorage.setItem('token', data.authToken);
             console.log("Signup successful:", data);
             props.showAlert("Signup successful!", "success");
             navigate('/');
@@ -40,7 +40,7 @@ const Signup = (props) => {
     };
 
     return (
-        <div className='container my-3'>
+        <div className='container mt-5 mb-5'>
             <form onSubmit={handleOnSubmit}>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
@@ -64,7 +64,9 @@ const Signup = (props) => {
                         onChange={handleOnChange}
                         aria-describedby="emailHelp"
                     />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" className="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
@@ -88,7 +90,9 @@ const Signup = (props) => {
                         onChange={handleOnChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Signup</button>
+                <button type="submit" className="btn btn-primary">
+                    Signup
+                </button>
             </form>
         </div>
     );

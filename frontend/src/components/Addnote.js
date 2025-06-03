@@ -15,7 +15,6 @@ const Addnote = (props) => {
         setNote({
             ...note,
             [e.target.name]: e.target.value,
-
         });
     };
 
@@ -29,7 +28,7 @@ const Addnote = (props) => {
     };
 
     return (
-        <div className="container my-3">
+        <div className="container mt-5 mb-5">
             <h2>Add New Note</h2>
             <form>
                 <div className="mb-3">
@@ -66,8 +65,14 @@ const Addnote = (props) => {
                     />
                 </div>
 
-                <button disabled={note.title.length === 0 || note.description.length === 0}
-                    type="submit" className="btn btn-primary" onClick={handleOnClick}>Submit</button>
+                <button
+                    disabled={note.title.length === 0 || note.description.length === 0}
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={handleOnClick}
+                >
+                    Submit
+                </button>
             </form>
         </div>
     );

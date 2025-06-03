@@ -1,3 +1,6 @@
+/* App.css */
+
+/* General App styles */
 .App {
   text-align: center;
 }
@@ -10,6 +13,15 @@
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -28,15 +40,32 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Notes headings and empty message */
+h2.notes-heading {
+  font-weight: 700;
+}
+p.notes-empty {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
+/* Navbar custom themes (optional, can remove if not used) */
+.navbar-custom {
+  font-weight: 500;
+}
+
+/* Button custom themes (optional, can remove if not used) */
+.btn-custom {
+  border: none;
+}
+
+/* Accordion custom themes (optional, can remove if not used) */
+.accordion-button.custom-accordion-btn {
+  font-weight: 500;
+}
+
+/* Utility */
 .cursor-pointer {
   cursor: pointer;
 }

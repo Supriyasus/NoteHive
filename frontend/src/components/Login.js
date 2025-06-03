@@ -30,14 +30,13 @@ const Login = (props) => {
             props.showAlert("Login successful!", "success");
             navigate('/'); 
         } else {
-                props.showAlert("Invalid credentials", "danger");
-
+            props.showAlert("Invalid credentials", "danger");
             console.error("Login failed");
         }
     };
 
     return (
-        <div className='container my-3'>
+        <div className='container mt-5 mb-5'>
             <form onSubmit={handleOnSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
@@ -50,7 +49,9 @@ const Login = (props) => {
                         onChange={handleOnChange}
                         aria-describedby="emailHelp"
                     />
-                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                    <div id="emailHelp" className="form-text">
+                        We'll never share your email with anyone else.
+                    </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
@@ -63,7 +64,9 @@ const Login = (props) => {
                         onChange={handleOnChange}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
+                <button type="submit" className="btn btn-primary">
+                    Login
+                </button>
             </form>
         </div>
     );
